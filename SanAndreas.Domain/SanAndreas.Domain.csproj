@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Entities\Cidades\Interfaces\Services\" />
+    <Folder Include="Entities\Cidades\Interfaces\Repositories\" />
+    <Folder Include="Entities\Cidades\Services\" />
+    <Folder Include="Entities\Trechos\Interfaces\Services\" />
+    <Folder Include="Entities\Trechos\Interfaces\Repositories\" />
+    <Folder Include="Entities\Trechos\Services\" />
+  </ItemGroup>
+
+</Project>
