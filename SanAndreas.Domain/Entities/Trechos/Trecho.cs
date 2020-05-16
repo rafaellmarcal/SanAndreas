@@ -8,9 +8,6 @@ namespace SanAndreas.Domain.Entities.Trechos
         public int CidadeDestinoId { get; private set; }
         public int QuantidadeDias { get; private set; }
 
-        public virtual Cidade CidadeDestino { get; private set; }
-        public virtual Cidade CidadeOrigem { get; private set; }
-
         protected Trecho() { }
     }
 }

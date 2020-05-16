@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SanAndreas.Web</title>
+    <title>Take - Correios de San Andreas</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -11,23 +11,52 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SanAndreas.Web</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Correios</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Trecho" asp-action="Index">Atualização de Trechos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Encomenda" asp-action="Index">Encomendas</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            @if (TempData["Mensagem"] != null)
+            {
+                <div class="row">
+                    <div class="col-12 col-lg-12">
+                        <div class="alert alert-primary alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <div class="alert-icon contrast-alert">
+                                <i class="icon-close"></i>
+                            </div>
+                            <div class="alert-message text-center">
+                                <span>
+                                    @TempData["Mensagem"]
+                                </span>
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
             @RenderBody()
         </main>
     </div>
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - SanAndreas.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2020 - Correios de San Andreas | Take
         </div>
     </footer>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
