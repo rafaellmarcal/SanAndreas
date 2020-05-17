@@ -1,4 +1,4 @@
-﻿namespace SanAndreas.Domain.Entities.Trechos.Interfaces.Services
+﻿namespace SanAndreas.Domain.Entities.Trechos.Interfaces
 {
     public interface IValidadorFormatacaoTrecho
     {

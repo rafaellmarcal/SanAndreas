@@ -5,7 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SanAndreas.Application.Interfaces;
 using SanAndreas.Application.Services;
-using SanAndreas.Domain.Entities.Trechos.Interfaces.Services;
+using SanAndreas.Domain.Entities.Encomendas.Interfaces;
+using SanAndreas.Domain.Entities.Encomendas.Services;
+using SanAndreas.Domain.Entities.Trechos.Interfaces;
 using SanAndreas.Domain.Entities.Trechos.Services;
 
 namespace SanAndreas.Web
@@ -28,9 +30,13 @@ namespace SanAndreas.Web
             services.AddTransient<ITrechoApplicationService, TrechoApplicationService>();
 
             services.AddTransient<IArmazenadorTrecho, ArmazenadorTrecho>();
+            services.AddTransient<IBuscarMelhorRota, BuscarMelhorRota>();
             services.AddTransient<IBuscarTrechoCadastrado, BuscarTrechoCadastrado>();
-            services.AddTransient<ICalcularRota, CalcularRota>();
-            services.AddTransient<IRetornarTrechoDisponivel, RetornarTrechoDisponivel>();
+            services.AddTransient<ICalcularRotaEncomenda, CalcularRotaEncomenda>();
+            services.AddTransient<IConverterTrecho, ConverterTrecho>();
+            services.AddTransient<IFiltrarTrechoValido, FiltrarTrechoValido>();
+            services.AddTransient<IGerarSaidaEncomenda, GerarSaidaEncomenda>();
+            services.AddTransient<IValidadorFormatacaoEncomenda, ValidadorFormatacaoEncomenda>();
             services.AddTransient<IValidadorFormatacaoTrecho, ValidadorFormatacaoTrecho>();
         }
 

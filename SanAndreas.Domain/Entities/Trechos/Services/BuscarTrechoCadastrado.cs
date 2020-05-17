@@ -1,28 +1,31 @@
-﻿using SanAndreas.Domain.Entities.Trechos.Interfaces.Services;
+﻿using SanAndreas.Domain.Entities.Base;
+using SanAndreas.Domain.Entities.Trechos.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace SanAndreas.Domain.Entities.Trechos.Services
 {
     public class BuscarTrechoCadastrado : IBuscarTrechoCadastrado
     {
-        private string temp = "";
+        private static string caminhoArquivo = Constantes.CaminhoBase + "trechos.txt";
 
-        public BuscarTrechoCadastrado()
-        {
-        }
-
-        public string[] Buscar()
+        public List<string> Buscar()
         {
             try
             {
-                string[] trechosDisponiveis = File.ReadAllLines(temp);
+                if (File.Exists(caminhoArquivo))
+                {
+                    List<string> trechosDisponiveis = File.ReadAllLines(caminhoArquivo).ToList();
+                    return trechosDisponiveis;
+                }
+
                 return null;
             }
             catch (Exception)
             {
-
-                throw;
+                return null;
             }
         }
     }

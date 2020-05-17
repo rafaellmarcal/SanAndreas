@@ -1,13 +1,14 @@
-﻿using System;
-using System.Text.RegularExpressions;
+﻿using SanAndreas.Domain.Entities.Base;
 using SanAndreas.Domain.Entities.Cidades.Enumerator;
-using SanAndreas.Domain.Entities.Trechos.Interfaces.Services;
+using SanAndreas.Domain.Entities.Trechos.Interfaces;
+using System;
+using System.Text.RegularExpressions;
 
 namespace SanAndreas.Domain.Entities.Trechos.Services
 {
     public class ValidadorFormatacaoTrecho : IValidadorFormatacaoTrecho
     {
-        private static string caracterDelimitador = ";";
+        private static string caracterDelimitador = Constantes.CaracterDelimitador;
 
         public string Validar(string trecho)
         {

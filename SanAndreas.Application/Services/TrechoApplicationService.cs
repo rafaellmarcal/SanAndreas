@@ -1,37 +1,30 @@
 ﻿using Microsoft.AspNetCore.Http;
 using SanAndreas.Application.Interfaces;
-using SanAndreas.Domain.Entities.Trechos.Interfaces.Services;
+using SanAndreas.Domain.Entities.Trechos.Interfaces;
 using System.Collections.Generic;
-using System.IO;
 
 namespace SanAndreas.Application.Services
 {
-    public class TrechoApplicationService : ITrechoApplicationService
+    public class TrechoApplicationService : BaseApplicationService, ITrechoApplicationService
     {
         private readonly IArmazenadorTrecho _armazenadorTrecho;
-        private readonly IRetornarTrechoDisponivel _retornarTrechoDisponivel;
+        private readonly IFiltrarTrechoValido _filtrarTrechoValido;
 
         public TrechoApplicationService(
             IArmazenadorTrecho armazenadorTrecho,
-            IRetornarTrechoDisponivel atualizarTrechos)
+            IFiltrarTrechoValido filtrarTrechoValido)
         {
             _armazenadorTrecho = armazenadorTrecho;
-            _retornarTrechoDisponivel = atualizarTrechos;
+            _filtrarTrechoValido = filtrarTrechoValido;
         }
 
         public bool AtualizarTrechos(IFormFile trechos)
         {
-            List<string> trechosInformados = new List<string>();
+            List<string> trechosInformados = base.ObterLinhasArquivo(trechos);
 
-            using (StreamReader reader = new StreamReader(trechos.OpenReadStream()))
-            {
-                while (reader.Peek() >= 0)
-                    trechosInformados.Add(reader.ReadLine());
-            }
+            List<string> trechosValidos = _filtrarTrechoValido.Filtrar(trechosInformados);
 
-            List<string> trechosDisponiveis = _retornarTrechoDisponivel.Filtrar(trechosInformados);
-
-            return _armazenadorTrecho.Armazenar(trechosDisponiveis);
+            return _armazenadorTrecho.Armazenar(trechosValidos);
         }
     }
 }

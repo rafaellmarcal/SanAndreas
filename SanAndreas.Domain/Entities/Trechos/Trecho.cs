@@ -1,13 +1,11 @@
-﻿using SanAndreas.Domain.Entities.Cidades;
+﻿using SanAndreas.Domain.Entities.Cidades.Enumerator;
 
 namespace SanAndreas.Domain.Entities.Trechos
 {
     public class Trecho
     {
-        public int CidadeOrigemId { get; private set; }
-        public int CidadeDestinoId { get; private set; }
-        public int QuantidadeDias { get; private set; }
-
-        protected Trecho() { }
+        public ECidade CidadeOrigem { get; set; }
+        public ECidade CidadeDestino { get; set; }
+        public int QuantidadeDias { get; set; }
     }
 }

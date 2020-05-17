@@ -1,4 +1,5 @@
-﻿using SanAndreas.Domain.Entities.Trechos.Interfaces.Services;
+﻿using SanAndreas.Domain.Entities.Base;
+using SanAndreas.Domain.Entities.Trechos.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +8,7 @@ namespace SanAndreas.Domain.Entities.Trechos.Services
 {
     public class ArmazenadorTrecho : IArmazenadorTrecho
     {
-        private static string caminhoArquivo = "D:\\Take\\SanAndreas\\trechos.txt";
+        private static string caminhoArquivo = Constantes.CaminhoBase + "trechos.txt";
 
         public bool Armazenar(List<string> trechos)
         {
@@ -20,7 +21,7 @@ namespace SanAndreas.Domain.Entities.Trechos.Services
                 {
                     foreach (string trecho in trechos)
                     {
-                        arquivo.WriteLine(trecho);
+                        arquivo.WriteLine(trecho.ToUpper());
                     }
                 }
 

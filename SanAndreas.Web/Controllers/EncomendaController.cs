@@ -22,8 +22,15 @@ namespace SanAndreas.Web.Controllers
                 return View("Index");
             }
 
-            byte[] rotasCalculadas = _encomendaApplicationService.CalcularMelhorRota(encomendas);
-            return File(rotasCalculadas, System.Net.Mime.MediaTypeNames.Application.Octet, "rotas.txt");
+            byte[] arquivoRotas = _encomendaApplicationService.CalcularMelhorRota(encomendas);
+
+            if(arquivoRotas == null)
+            {
+                TempData["Mensagem"] = "Não foi possível calcular as melhores rotas!";
+                return View("Index");
+            }
+
+            return File(arquivoRotas, System.Net.Mime.MediaTypeNames.Application.Octet, "rotas.txt");
         }
     }
 }
