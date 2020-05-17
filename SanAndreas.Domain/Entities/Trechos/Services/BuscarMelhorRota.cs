@@ -47,6 +47,7 @@ namespace SanAndreas.Domain.Entities.Trechos.Services
         {
             List<Trecho> rotasEncontradas = new List<Trecho>();
 
+            // Valida se já esgotou todas as possibilidades de rotas.
             if (maximoRotas == 0)
                 return null;
 
@@ -61,6 +62,7 @@ namespace SanAndreas.Domain.Entities.Trechos.Services
                 {
                     Trecho ultimoRotaEncontrada = rotasEncontradas.Last();
 
+                    // Validação para não inserir duplicadamente a rota para a cidade de destino.
                     if (!proximasRotas.Any(t => t.CidadeOrigem == ultimoRotaEncontrada.CidadeOrigem && t.CidadeDestino == ultimoRotaEncontrada.CidadeDestino))
                     {
                         Trecho proximaRota = proximasRotas.FirstOrDefault(t => t.CidadeDestino == ultimoRotaEncontrada.CidadeOrigem);
