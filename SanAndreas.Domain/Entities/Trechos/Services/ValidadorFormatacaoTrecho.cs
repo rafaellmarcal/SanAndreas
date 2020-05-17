@@ -12,6 +12,9 @@ namespace SanAndreas.Domain.Entities.Trechos.Services
 
         public string Validar(string trecho)
         {
+            if (trecho == null || string.IsNullOrWhiteSpace(trecho))
+                return string.Empty;
+
             trecho = Regex.Replace(trecho, @"\s+", caracterDelimitador);
             string[] informacaoTrecho = trecho.Split(caracterDelimitador);
 

@@ -12,6 +12,9 @@ namespace SanAndreas.Domain.Entities.Trechos.Services
 
         public string Validar(string encomenda)
         {
+            if (encomenda == null || string.IsNullOrWhiteSpace(encomenda))
+                return string.Empty;
+
             encomenda = Regex.Replace(encomenda.ToUpper(), @"\s+", caracterDelimitador);
             string[] informacaoEncomenda = encomenda.Split(caracterDelimitador);
 

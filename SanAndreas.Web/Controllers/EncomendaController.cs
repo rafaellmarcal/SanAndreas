@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SanAndreas.Application.Interfaces;
+using System.Net.Mime;
 
 namespace SanAndreas.Web.Controllers
 {
@@ -30,7 +31,7 @@ namespace SanAndreas.Web.Controllers
                 return View("Index");
             }
 
-            return File(arquivoRotas, System.Net.Mime.MediaTypeNames.Application.Octet, "rotas.txt");
+            return File(arquivoRotas, MediaTypeNames.Application.Octet, "rotas.txt");
         }
     }
 }

@@ -40,7 +40,7 @@ namespace SanAndreas.Domain.Entities.Trechos.Services
                 return $"{String.Join(" ", rotasEncontradas.Select(x => String.Join(" ", x.CidadeOrigem.ToString())))} {cidadeDestino.ToString()} {totalDias}";
             }
 
-            return string.Empty;
+            return $"{cidadeOrigem.ToString()} {cidadeDestino.ToString()} N/D";
         }
 
         private List<Trecho> BuscarProximaRota(ECidade cidadeOrigem, ECidade cidadeDestino, List<Trecho> trechosParaDestino, List<Trecho> trechosCadastrados, int maximoRotas)

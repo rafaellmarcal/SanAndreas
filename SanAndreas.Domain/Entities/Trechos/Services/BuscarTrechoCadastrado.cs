@@ -1,5 +1,4 @@
-﻿using SanAndreas.Domain.Entities.Base;
-using SanAndreas.Domain.Entities.Trechos.Interfaces;
+﻿using SanAndreas.Domain.Entities.Trechos.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,15 +8,15 @@ namespace SanAndreas.Domain.Entities.Trechos.Services
 {
     public class BuscarTrechoCadastrado : IBuscarTrechoCadastrado
     {
-        private static string caminhoArquivo = Constantes.CaminhoBase + "trechos.txt";
+        private string nomeArquivo = "trechos.txt";
 
         public List<string> Buscar()
         {
             try
             {
-                if (File.Exists(caminhoArquivo))
+                if (File.Exists(nomeArquivo))
                 {
-                    List<string> trechosDisponiveis = File.ReadAllLines(caminhoArquivo).ToList();
+                    List<string> trechosDisponiveis = File.ReadAllLines(nomeArquivo).ToList();
                     return trechosDisponiveis;
                 }
 

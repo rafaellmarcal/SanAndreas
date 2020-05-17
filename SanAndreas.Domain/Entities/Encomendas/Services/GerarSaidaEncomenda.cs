@@ -1,5 +1,4 @@
-﻿using SanAndreas.Domain.Entities.Base;
-using SanAndreas.Domain.Entities.Encomendas.Interfaces;
+﻿using SanAndreas.Domain.Entities.Encomendas.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,7 +13,7 @@ namespace SanAndreas.Domain.Entities.Encomendas.Services
             if (rotasCalculadasEncomendas == null || !rotasCalculadasEncomendas.Any())
                 return null;
 
-            string nomeArquivo = $"{Constantes.CaminhoBase}{DateTime.Now.ToFileTime()}rotas.txt";
+            string nomeArquivo = $"{DateTime.Now.ToFileTime()}rotas.txt";
 
             using (StreamWriter writer = new StreamWriter(nomeArquivo))
             {
