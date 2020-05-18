@@ -16,12 +16,12 @@ disponibilizará um arquivo .txt com as melhores rotas para cada encomenda.
 O cálculo é feito partindo da cidade de origem da encomenda até encontrar o trecho que ligue com a cidade de destino.
 Quando há uma encomenda que não é possível ser entregue, por não ter trechos que se interliguem e cheguem a cidade de destino, a encomenda é retornada com a flag 'N/D' (Não Disponível).
 
-Encomenda com possibilidade de entrega:
-Ex.:
-  encomendas.txt: SF BC
-  rotas.txt: SF BC 3
+Encomenda com possibilidade de entrega: <br/>
+Ex.: <br/>
+  encomendas.txt: SF BC <br/>
+  rotas.txt: SF BC 3 <br/>
 
-Encomenda sem possibilidade de entrega:
-Ex.:
-  encomendas.txt: SF BC
+Encomenda sem possibilidade de entrega: <br/>
+Ex.: <br/>
+  encomendas.txt: SF BC <br/>
   rotas.txt: SF BC N/D
